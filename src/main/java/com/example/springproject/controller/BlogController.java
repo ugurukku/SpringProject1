@@ -1,26 +1,26 @@
 package com.example.springproject.controller;
 import com.example.springproject.dto.BlogDto;
-import com.example.springproject.entity.Blog;
 import com.example.springproject.maneger.BlogManager;
+import com.example.springproject.service.BlogService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/blogs")
 public class BlogController {
-    private final BlogManager blogManager;
-    public BlogController(BlogManager blogManager) {
-        this.blogManager = blogManager;
+    private final BlogService service;
+    public BlogController(BlogManager service) {
+        this.service = service;
     }
     @GetMapping("/{id}")
     BlogDto findById(@PathVariable int id){
-       return blogManager.findById(id);
+       return service.findById(id);
     }
     @PostMapping("/add")
     void addBlog(@RequestBody BlogDto blog){
-        blogManager.addBlog(blog);
+        service.addBlog(blog);
     }
     @DeleteMapping("/delete/{id}")
     void deleteBlog(@PathVariable int id){
-        blogManager.deleteBlog(id);
+        service.deleteBlog(id);
     }
 }

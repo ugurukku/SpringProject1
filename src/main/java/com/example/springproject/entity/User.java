@@ -9,12 +9,19 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+
+    @Column(name = "email")
+    String email;
+
+    @Column(name = "password")
+    String password;
 
     @Column(name="name")
     String name;

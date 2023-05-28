@@ -7,6 +7,7 @@ import lombok.experimental.FieldDefaults;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Blog {
 
